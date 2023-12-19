@@ -3,6 +3,7 @@ package controller;
 
 import dto.ResponseDTO;
 import dto.TreeDetailDTO;
+import dto.TreeOverViewDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import service.TreeService;
@@ -28,6 +29,16 @@ public class TreeController {
         String msg = treeService.getTreeDetail(treeDetailDTO);
         ResponseDTO<TreeDetailDTO> response = ResponseDTO.<TreeDetailDTO>builder()
                 .message(msg).data(treeDetailDTO).build();
+        return ResponseEntity.ok().body(response);
+    }
+
+    @GetMapping("/tree/overview/{treeId}")
+    public ResponseEntity<ResponseDTO<TreeOverViewDTO>> getTreeOverView(@PathVariable Long treeId) {
+        TreeOverViewDTO treeOverViewDTO = new TreeOverViewDTO();
+        treeOverViewDTO.setTreeId(treeId);
+        String msg = treeService.getTreeOverView(treeOverViewDTO);
+        ResponseDTO<TreeOverViewDTO> response = ResponseDTO.<TreeOverViewDTO>builder()
+                .message(msg).data(treeOverViewDTO).build();
         return ResponseEntity.ok().body(response);
     }
 
