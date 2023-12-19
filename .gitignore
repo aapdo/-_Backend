@@ -1,0 +1,5 @@
+**/src/main/**/application-dev.yaml
+**/src/main/resources/application-local.yaml
+.idea/
+.gradle/
+./build/
