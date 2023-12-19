@@ -22,15 +22,31 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //스프링 시큐리티 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter'
+    //tomcat 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // json 파싱 라이브러리
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+    // jwt 토큰 라이브러리
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
     compileOnly 'org.projectlombok:lombok'
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // mysql 관련 드라이버
+    runtimeOnly 'mysql:mysql-connector-java:8.0.25'
 
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+
+    //java 웹 토큰 라이브러리인 jjwt의 두 가지 모듈을 프로젝트에 추가하는데 사용
+    // JWT 생성, 파싱 및 유효성 겁사하는 모듈
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
+    // Jackson 라이브러리와 통합된 jjwt의 모듈, JSON과 관련된 작업 처리. JWT를 JSON 형식으로 직렬화하거나, 역직렬화
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 }
 
 tasks.named('test') {
