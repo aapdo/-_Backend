@@ -1,10 +1,9 @@
 package Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -19,4 +18,8 @@ public class Tree {
     private Boolean isAccessable;
     private Integer NumBadMemory;
     private Integer NumGoodMemory;
+
+    @OneToMany
+
+    private List<Ornament> ornamentList;
 }
