@@ -38,4 +38,13 @@ public class TreeService {
 
         return returnMsg;
     }
+
+    public Tree getTreeById(Long treeId) {
+        Optional<Tree> optionalTree = treeRepository.findById(treeId);
+        Tree tree = treeRepository.findById(treeId).orElseThrow(() ->{
+            // err check
+            throw new RuntimeException();
+        });
+        return tree;
+    }
 }
