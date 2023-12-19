@@ -4,6 +4,7 @@ import org.example.bliss_be.dto.MemberDTO;
 import org.example.bliss_be.dto.ResponseDTO;
 import org.example.bliss_be.dto.ResponseMemberDTO;
 import lombok.RequiredArgsConstructor;
+import org.example.bliss_be.service.MemberService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

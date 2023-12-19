@@ -1,10 +1,8 @@
 package org.example.bliss_be.controller;
-
-
 import org.example.bliss_be.dto.ResponseDTO;
-import dto.TreeDetailDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.example.bliss_be.dto.TreeDetailDTO;
 import org.example.bliss_be.service.TreeService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class TreeController {
     private final TreeService treeService;
@@ -26,7 +23,6 @@ public class TreeController {
         ResponseDTO<TreeDetailDTO> response = ResponseDTO.<TreeDetailDTO>builder()
                 .message(msg).data(treeDetailDTO).build();
         return ResponseEntity.ok().body(response);
+
     }
-
-
 }

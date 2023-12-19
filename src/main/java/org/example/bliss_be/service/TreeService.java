@@ -1,7 +1,7 @@
 package org.example.bliss_be.service;
 
 
-import dto.TreeDetailDTO;
+import org.example.bliss_be.dto.TreeDetailDTO;
 import org.example.bliss_be.entity.Tree;
 import org.example.bliss_be.repository.TreeRepository;
 import lombok.AllArgsConstructor;
@@ -13,8 +13,6 @@ import java.util.Optional;
 @AllArgsConstructor
 public class TreeService {
     private final TreeRepository treeRepository;
-
-
     public String getTreeDetail(TreeDetailDTO treeDetailDTO){
         String returnMsg = "";
         Optional<Tree> optionalTree = treeRepository.findById(treeDetailDTO.getTreeId());
