@@ -8,4 +8,5 @@ public class MemberDTO {
     String name;
     String password;
     String email;
+    Long treeId;
 }

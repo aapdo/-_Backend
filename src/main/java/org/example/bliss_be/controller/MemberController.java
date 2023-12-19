@@ -37,7 +37,7 @@ public class MemberController {
         String message = memberService.login(memberDTO);
         ResponseMemberDTO responseMemberDTO = ResponseMemberDTO.builder()
                 .name(memberDTO.getName())
-//                .treeId(memberDTO.getTreeId)
+                .treeId(memberDTO.getTreeId())
                 .build();
         ResponseDTO<ResponseMemberDTO> response = ResponseDTO.<ResponseMemberDTO>builder()
                 .message(message)
