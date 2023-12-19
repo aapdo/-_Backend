@@ -6,13 +6,14 @@ import lombok.*;
 
 
 @Entity
-@Getter
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor @Builder
 @Table(name = "member")
 public class MemberEntity {
     @Id
-    private String memberId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Double id;
     @Column
     private String name;
     @Column
