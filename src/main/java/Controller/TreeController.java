@@ -1,5 +1,6 @@
 package Controller;
 
+<<<<<<< HEAD
 import Dto.TreeDetailDto;
 import Service.TreeService;
 import lombok.AllArgsConstructor;
@@ -11,11 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+=======
+import Service.TreeService;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
+
+>>>>>>> 3e04d06 (Feat: new Tree)
 @RestController
 @AllArgsConstructor
 public class TreeController {
     private final TreeService treeService;
 
+<<<<<<< HEAD
     @GetMapping("/testNull")
     public Integer test(@RequestBody List<Integer> list) {
         treeService.createNewTree();
@@ -27,4 +35,6 @@ public class TreeController {
         return
     }
 
+=======
+>>>>>>> 3e04d06 (Feat: new Tree)
 }
