@@ -1,8 +1,10 @@
 package org.example.bliss_be.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 
+@Setter
+@Getter
+@RequiredArgsConstructor
 @AllArgsConstructor @Builder
 public class ResponseJoinDTO {
     String name;
