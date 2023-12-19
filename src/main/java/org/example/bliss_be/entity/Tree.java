@@ -10,8 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@AllArgsConstructor @Builder
 @Getter
 public class Tree {
     @Id
@@ -23,6 +22,5 @@ public class Tree {
 
     @OneToMany
     private List<Ornament> ornamentList;
-
 
 }
