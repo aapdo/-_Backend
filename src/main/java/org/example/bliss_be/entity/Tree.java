@@ -21,7 +21,6 @@ public class Tree {
     private Integer NumBadMemory;
     private Integer NumGoodMemory;
 
-
     @OneToMany
     private List<Ornament> ornamentList;
 
