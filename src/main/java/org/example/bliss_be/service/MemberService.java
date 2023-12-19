@@ -1,5 +1,6 @@
 package org.example.bliss_be.service;
 
+import lombok.Builder;
 import org.example.bliss_be.dto.MemberDTO;
 import org.example.bliss_be.entity.MemberEntity;
 import org.example.bliss_be.entity.Tree;

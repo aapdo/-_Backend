@@ -2,6 +2,7 @@ package org.example.bliss_be.controller;
 
 import org.example.bliss_be.dto.MemberDTO;
 import org.example.bliss_be.dto.ResponseDTO;
+import org.example.bliss_be.dto.ResponseJoinDTO;
 import org.example.bliss_be.dto.ResponseMemberDTO;
 import lombok.RequiredArgsConstructor;
 import org.example.bliss_be.service.MemberService;
@@ -19,14 +20,14 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping(value = "/signup")
-    public ResponseEntity<ResponseDTO<ResponseMemberDTO>> join(@RequestBody MemberDTO memberDTO) {
+    public ResponseEntity<ResponseDTO<ResponseJoinDTO>> join(@RequestBody MemberDTO memberDTO) {
         String message = memberService.join(memberDTO);
-        ResponseMemberDTO responseMemberDTO = ResponseMemberDTO.builder()
+        ResponseJoinDTO responseJoinDTO = ResponseJoinDTO.builder()
                 .name(memberDTO.getName())
                 .build();
-        ResponseDTO<ResponseMemberDTO> response = ResponseDTO.<ResponseMemberDTO>builder()
+        ResponseDTO<ResponseJoinDTO> response = ResponseDTO.<ResponseJoinDTO>builder()
                 .message(message)
-                .data(responseMemberDTO)
+                .data(responseJoinDTO)
                 .build();
         return ResponseEntity.ok().body(response);
     }
