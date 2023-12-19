@@ -12,8 +12,15 @@ spring:
     static-path-pattern: /static/**
 
   jpa:
+<<<<<<< HEAD
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL57Dialect
+=======
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+>>>>>>> 2a64fb5f6947cf6c306b417c47e2da555822ae7f
     properties:
       hibernate:
         jdbc:
@@ -24,6 +31,7 @@ spring:
           useUnicode: true
           characterEncoding: utf-8
 
+<<<<<<< HEAD
     hibernate:
       ddl-auto: update
     defer-datasource-initialization: true
@@ -38,3 +46,5 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 jwt:
   secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+=======
+>>>>>>> 2a64fb5f6947cf6c306b417c47e2da555822ae7f
