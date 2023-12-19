@@ -18,4 +18,5 @@ public class Member {
     String name;
     String password;
     String email;
+
 }
