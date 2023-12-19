@@ -1,9 +1,10 @@
 package org.example.bliss_be.service;
 
 
-import org.example.bliss_be.dto.TreeDetailDTO;
 import org.example.bliss_be.entity.Tree;
 import org.example.bliss_be.repository.TreeRepository;
+import org.example.bliss_be.dto.TreeDetailDTO;
+import dto.TreeOverViewDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,18 @@ public class TreeService {
         Optional<Tree> optionalTree = treeRepository.findById(treeDetailDTO.getTreeId());
         if (optionalTree.isPresent()) {
             treeDetailDTO.setOrnamentIdList(optionalTree.get());
+            returnMsg = "트리 조회에 성공하였습니다.";
+        } else {
+            returnMsg = "존재하지 않는 트리입니다.";
+        }
+
+        return returnMsg;
+    }
+    public String getTreeOverView(TreeOverViewDTO treeOverViewDTO){
+        String returnMsg = "";
+        Optional<Tree> optionalTree = treeRepository.findById(treeOverViewDTO.getTreeId());
+        if (optionalTree.isPresent()) {
+            treeOverViewDTO.setOrnamentIdList(optionalTree.get());
             returnMsg = "트리 조회에 성공하였습니다.";
         } else {
             returnMsg = "존재하지 않는 트리입니다.";
