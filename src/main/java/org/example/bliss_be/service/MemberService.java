@@ -14,7 +14,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
     public String join(MemberDTO memberDTO){
         String message;
-        if (memberRepository.findById(memberDTO.getName()).isPresent()){
+        if (memberRepository.findByName(memberDTO.getName()).isPresent()){
             message = "이미 존재하는 아이디입니다.";
 
         }else {
@@ -30,7 +30,7 @@ public class MemberService {
     }
     public String login(MemberDTO memberDTO){
         String message;
-        Optional<MemberEntity> member= memberRepository.findById(memberDTO.getName());
+        Optional<MemberEntity> member= memberRepository.findByName(memberDTO.getName());
         if (member.isPresent() && member.get().getPassword().equals(memberDTO.getPassword())){
             message = "로그인에 성공하였습니다.";
         }else {
