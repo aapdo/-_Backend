@@ -1,7 +1,6 @@
 package dto;
 
-import entity.Tree;
-import lombok.AllArgsConstructor;
+import org.example.bliss_be.entity.Tree;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

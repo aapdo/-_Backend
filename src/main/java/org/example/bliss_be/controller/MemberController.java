@@ -1,14 +1,14 @@
-package controller;
+package org.example.bliss_be.controller;
 
-import dto.MemberDTO;
-import dto.ResponseDTO;
-import dto.ResponseMemberDTO;
+import org.example.bliss_be.dto.MemberDTO;
+import org.example.bliss_be.dto.ResponseDTO;
+import org.example.bliss_be.dto.ResponseMemberDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import service.MemberService;
+import org.example.bliss_be.service.MemberService;
 
 
 @RestController

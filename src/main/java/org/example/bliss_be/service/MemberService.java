@@ -1,8 +1,8 @@
-package service;
+package org.example.bliss_be.service;
 
-import dto.MemberDTO;
-import entity.MemberEntity;
-import repository.MemberRepository;
+import org.example.bliss_be.dto.MemberDTO;
+import org.example.bliss_be.entity.MemberEntity;
+import org.example.bliss_be.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

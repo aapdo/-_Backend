@@ -1,4 +1,4 @@
-package entity;
+package org.example.bliss_be.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

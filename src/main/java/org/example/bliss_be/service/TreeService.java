@@ -1,9 +1,9 @@
-package service;
+package org.example.bliss_be.service;
 
 
 import dto.TreeDetailDTO;
-import entity.Tree;
-import repository.TreeRepository;
+import org.example.bliss_be.entity.Tree;
+import org.example.bliss_be.repository.TreeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package dto;
+package org.example.bliss_be.dto;
 
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
