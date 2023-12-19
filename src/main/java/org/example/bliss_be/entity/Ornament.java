@@ -16,4 +16,6 @@ public class Ornament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Boolean isGoodMemory;
+    private String memory;
 }
