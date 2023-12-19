@@ -1,5 +1,14 @@
 # donggukthon_2023_5_B
+## 📝 Git Flow : branch strategy
 
+branch | 설명
+-----------------|--------------------------------------------------------------
+main | 운영환경에 배포될 수 있는 코드를 모아둔다
+feature | 새로운 기능을 개발하기 위한 브랜치로, develop 브랜치에서 생성하고, 기능 개발이 완료되면 develop으로 merge한다.
+release | 새로운 버전의 배포를 위한 브랜치로, develop 브랜치에서 생성하고, 배포 전 버전 이름 등 사소한 데이터 수정 및 버그를 수정하기 위해 사용된다. 배포 준비가 완료되면 main, develop에 둘 다 merge한다.
+hotfix | 운영환경에 빠르게 수정해야할 버그가 있을 때 main을 빠르게 변경하기 위해 사용한다. main 브랜치에서 생성하고 버그 수정이 끝나면 main, develop에 merge한다. 
+
+ex) feature/login
 ## ✏️ Commit Type
 
 Type |	설명
