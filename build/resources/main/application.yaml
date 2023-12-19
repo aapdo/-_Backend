@@ -1,7 +1,6 @@
 spring:
   jpa:
     open-in-view: false
-    database-platform: org.hibernate.dialect.MySQL8Dialect
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
@@ -9,4 +8,10 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+      transaction:
+        jta:
+          platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
+logging:
+  level:
+    root: DEBUG
 
