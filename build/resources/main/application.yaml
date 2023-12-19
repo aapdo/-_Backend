@@ -8,10 +8,4 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
-      transaction:
-        jta:
-          platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
-logging:
-  level:
-    root: DEBUG
 
