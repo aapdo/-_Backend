@@ -50,10 +50,10 @@ public class TreeController {
             ornamentDTO = new OrnamentDTO(false, recordReqDTO.getMemo());
         }
         ornamentDTO.setTreeId(treeId);
-        ornamentService.addOrnament(ornamentDTO);
+        int listIndex = ornamentService.addOrnament(ornamentDTO);
 
         // 장식 생성이 되지 않은 경우
-        if (ornamentDTO.getOrnamentId() != null) {
+        if (listIndex != -1) {
             msg = "기록되었습니다.";
         }
 
