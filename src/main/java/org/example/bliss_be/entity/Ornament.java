@@ -1,10 +1,9 @@
 package org.example.bliss_be.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,4 +17,7 @@ public class Ornament {
     private Long id;
     private Boolean isGoodMemory;
     private String memory;
+    @ManyToOne
+    @JoinColumn(name = "tree_Id")
+    private Tree tree;
 }
