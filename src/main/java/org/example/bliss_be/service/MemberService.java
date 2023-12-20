@@ -27,8 +27,11 @@ public class MemberService {
                     .isAccessable(false)
                     .NumBadMemory(0)
                     .NumGoodMemory(0)
-                    .ornamentList(new ArrayList<>(13))
+                    .ornamentList(new ArrayList<>())
                     .build();
+            for (int i = 0; i < 13; i++) {
+                treeEntity.getOrnamentList().add(null);
+            }
             treeRepository.save(treeEntity);
             MemberEntity memberEntity = MemberEntity.builder()
                     .name(memberDTO.getName())

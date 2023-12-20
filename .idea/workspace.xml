@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bc649f6-bf36-4741-8cbc-835b1eaef39d" name="Changes" comment="# 제목은 최대 50글자까지 아래에 작성: ex) Feat: Add Key mapping&#10;&#10;# 본문은 아래에 작성&#10;&#10;# 꼬릿말은 아래에 작성: ex) Github issue #23&#10;&#10;# --- COMMIT END ---&#10;#   &lt;타입&gt; 리스트&#10;#   feat        : 기능 (새로운 기능)&#10;#   fix         : 버그 (버그 수정)&#10;#   refactor    : 리팩토링&#10;#   design      : CSS 등 사용자 UI 디자인 변경&#10;#   comment     : 필요한 주석 추가 및 변경&#10;#   style       : 스타일 (코드 형식, 세미콜론 추가: 비즈니스 로직에 변경 없음)&#10;#   docs        : 문서 수정 (문서 추가, 수정, 삭제, README)&#10;#   test        : 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)&#10;#   chore       : 기타 변경사항 (빌드 스크립트 수정, assets, 패키지 매니저 등)&#10;#   init        : 초기 생성&#10;#   rename      : 파일 혹은 폴더명을 수정하거나 옮기는 작업만 한 경우&#10;#   remove      : 파일을 삭제하는 작업만 수행한 경우&#10;# ------------------&#10;#   제목 첫 글자를 대문자로&#10;#   제목은 명령문으로&#10;#   제목 끝에 마침표(.) 금지&#10;#   제목과 본문을 한 줄 띄워 분리하기&#10;#   본문은 &quot;어떻게&quot; 보다 &quot;무엇을&quot;, &quot;왜&quot;를 설명한다.&#10;#   본문에 여러줄의 메시지를 작성할 땐 &quot;-&quot;로 구분&#10;# ------------------&#10;#   &lt;꼬리말&gt;&#10;#   필수가 아닌 optioanl&#10;#   Fixes        :이슈 수정중 (아직 해결되지 않은 경우)&#10;#   Resolves     : 이슈 해결했을 때 사용&#10;#   Ref          : 참고할 이슈가 있을 때 사용&#10;#   Related to   : 해당 커밋에 관련된 이슈번호 (아직 해결되지 않은 경우)&#10;#   ex) Fixes: #47 Related to: #32, #21">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4027b122-030c-4354-94f8-9e243123abe5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4027b122-030c-4354-94f8-9e243123abe5/storage_v2/_src_/schema/bliss._6-XBQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4027b122-030c-4354-94f8-9e243123abe5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4027b122-030c-4354-94f8-9e243123abe5/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4027b122-030c-4354-94f8-9e243123abe5/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4027b122-030c-4354-94f8-9e243123abe5/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/controller/OrnamentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/controller/OrnamentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/service/OrnamentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/service/OrnamentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/controller/DummyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/controller/DummyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/dto/TreeOverViewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/dto/TreeOverViewDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/service/TreeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bliss_be/service/TreeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,42 +83,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BlissBeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle./Users/heoeunjeong/Desktop/donggukthon_2023_5_B/Bliss_BE/build.gradle.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build Bliss_BE.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build donggukthon_2023_5_B.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.donggukthon_2023_5_B [:BlissBeApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BlissBeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.local.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/heoeunjeong/Desktop/donggukthon_2023_5_B&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.28444445&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BlissBeApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Gradle./Users/heoeunjeong/Desktop/donggukthon_2023_5_B/Bliss_BE/build.gradle.executor": "Run",
+    "Gradle.Build Bliss_BE.executor": "Run",
+    "Gradle.Build donggukthon_2023_5_B.executor": "Run",
+    "Gradle.donggukthon_2023_5_B [:BlissBeApplication.main()].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.BlissBeApplication.executor": "Run",
+    "Spring Boot.local.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Rebasing main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/heoeunjeong/Desktop/donggukthon_2023_5_B",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.28444445",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Bliss_BE/src/main/java/org/example/bliss_be" />
@@ -121,19 +130,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.local">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Bliss_BE.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Bliss_BE.main" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BlissBeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="Bliss_BE.main" />
@@ -196,6 +192,7 @@
       <workItem from="1702976941996" duration="3193000" />
       <workItem from="1702983730074" duration="694000" />
       <workItem from="1702984434618" duration="36952000" />
+      <workItem from="1703048575316" duration="1181000" />
     </task>
     <servers />
   </component>

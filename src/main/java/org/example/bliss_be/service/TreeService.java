@@ -1,6 +1,7 @@
 package org.example.bliss_be.service;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.bliss_be.entity.Tree;
 import org.example.bliss_be.repository.TreeRepository;
 import org.example.bliss_be.dto.TreeDetailDTO;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class TreeService {
     private final TreeRepository treeRepository;
     public String getTreeDetail(TreeDetailDTO treeDetailDTO){
@@ -31,6 +33,7 @@ public class TreeService {
         Optional<Tree> optionalTree = treeRepository.findById(treeOverViewDTO.getTreeId());
         if (optionalTree.isPresent()) {
             treeOverViewDTO.setOrnamentIdList(optionalTree.get());
+            log.info("");
             returnMsg = "트리 조회에 성공하였습니다.";
         } else {
             returnMsg = "존재하지 않는 트리입니다.";
