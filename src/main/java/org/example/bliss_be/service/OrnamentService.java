@@ -42,7 +42,7 @@ public class OrnamentService {
                     System.out.println("나쁜기억을 더 만들어오세요");
                 }
             }
-            getOrnermentList = getOrnamentList(ornamentDTO.getTreeId());
+            getOrnermentList = myTree.get().getOrnamentList();
             if(!edited){
                 System.out.println("추가된 오너먼트가 없어요");
             }else {
