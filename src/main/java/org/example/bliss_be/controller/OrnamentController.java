@@ -3,18 +3,21 @@ package org.example.bliss_be.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.bliss_be.dto.OrnamentDTO;
 import org.example.bliss_be.dto.ResponseDTO;
+import org.example.bliss_be.entity.Ornament;
 import org.example.bliss_be.service.OrnamentService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/ornament")
 public class OrnamentController {
     private final OrnamentService ornamentService;
 
-    @GetMapping("/ornament/{ornamentId}")
+
+    @GetMapping("/{ornamentId}")
     public ResponseEntity<ResponseDTO<OrnamentDTO>> getOrnament(@PathVariable Long ornamentId) {
         OrnamentDTO ornamentDTO = new OrnamentDTO();
         ornamentDTO.setOrnamentId(ornamentId);
@@ -24,5 +27,21 @@ public class OrnamentController {
                 .data(ornamentDTO).
                 build();
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/getlist/{treeId}")
+    public ResponseEntity<ResponseDTO<List<OrnamentDTO>>> getOrnamentList(@PathVariable Long treeId){
+        String message;
+        List<Ornament> ornamentList = ornamentService.getOrnamentList(treeId);
+        if(ornamentList.isEmpty()){
+            message = "오너먼트가 하나도 없어요...";
+        }else {
+            message = "오너먼트 조회에 성공하였습니다.";
+        }
+        ResponseDTO response = ResponseDTO.builder()
+                .message(message)
+                .data(ornamentList)
+                .build();
+        return ResponseEntity.ok().body(response);
     }
 }

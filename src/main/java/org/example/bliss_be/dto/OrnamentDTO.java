@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrnamentDTO {
+    private Long treeId;
     private Long ornamentId;
     private Boolean isGoodMemory;
     private String memory;

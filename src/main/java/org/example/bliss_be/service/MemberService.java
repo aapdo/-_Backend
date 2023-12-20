@@ -45,6 +45,7 @@ public class MemberService {
         String message;
         Optional<MemberEntity> member= memberRepository.findByName(memberDTO.getName());
         if (member.isPresent() && member.get().getPassword().equals(memberDTO.getPassword())){
+            memberDTO.setTreeId(member.get().getTree().getId());
             message = "로그인에 성공하였습니다.";
         }else {
             message = "아이디 또는 비밀번호가 틀렸습니다.";

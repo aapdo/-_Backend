@@ -9,5 +9,5 @@ import lombok.*;
 public class ResponseMemberDTO {
 
     String name;
-    Double treeId;
+    Long treeId;
 }

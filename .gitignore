@@ -1,6 +1,6 @@
 **/src/main/**/application-dev.yaml
 **/src/main/resources/application-local.yaml
-.idea/
+donggukthon_2023_5_B/.idea
 .gradle/
 ./build/
 
