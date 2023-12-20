@@ -1,6 +1,7 @@
 package org.example.bliss_be.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Tree {
     private Integer NumBadMemory;
     private Integer NumGoodMemory;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tree")
     private List<Ornament> ornamentList;
 

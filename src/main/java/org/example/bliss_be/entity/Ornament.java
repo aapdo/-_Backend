@@ -17,6 +17,7 @@ public class Ornament {
     private Long id;
     private Boolean isGoodMemory;
     private String memory;
+
     @ManyToOne
     @JoinColumn(name = "tree_Id")
     private Tree tree;

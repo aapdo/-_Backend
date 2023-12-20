@@ -5,6 +5,7 @@ import org.example.bliss_be.dto.OrnamentDTO;
 import org.example.bliss_be.dto.ResponseDTO;
 import org.example.bliss_be.entity.Ornament;
 import org.example.bliss_be.service.OrnamentService;
+import org.example.bliss_be.service.TreeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,6 @@ import java.util.List;
 @RequestMapping("/ornament")
 public class OrnamentController {
     private final OrnamentService ornamentService;
-
 
     @GetMapping("/{ornamentId}")
     public ResponseEntity<ResponseDTO<OrnamentDTO>> getOrnament(@PathVariable Long ornamentId) {
@@ -30,7 +30,7 @@ public class OrnamentController {
     }
 
     @GetMapping("/getlist/{treeId}")
-    public ResponseEntity<ResponseDTO<List<OrnamentDTO>>> getOrnamentList(@PathVariable Long treeId){
+    public ResponseEntity<ResponseDTO<List<Ornament>>> getOrnamentList(@PathVariable Long treeId){
         String message;
         List<Ornament> ornamentList = ornamentService.getOrnamentList(treeId);
         if(ornamentList.isEmpty()){
@@ -38,7 +38,7 @@ public class OrnamentController {
         }else {
             message = "오너먼트 조회에 성공하였습니다.";
         }
-        ResponseDTO response = ResponseDTO.builder()
+        ResponseDTO<List<Ornament>> response = ResponseDTO.<List<Ornament>>builder()
                 .message(message)
                 .data(ornamentList)
                 .build();

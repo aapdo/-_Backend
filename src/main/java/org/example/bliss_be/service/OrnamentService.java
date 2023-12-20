@@ -19,7 +19,7 @@ public class OrnamentService {
     private final OrnamentRepository ornamentRepository;
     private final TreeRepository treeRepository;
     public List<Ornament> getOrnamentList(Long treeId){
-        List<Ornament> ornamentList = ornamentRepository.findAllById(treeId);
+        List<Ornament> ornamentList = ornamentRepository.findAllByTreeId(treeId);
         return  ornamentList;
     }
     public Integer addOrnament(OrnamentDTO ornamentDTO){
@@ -42,6 +42,7 @@ public class OrnamentService {
                     System.out.println("나쁜기억을 더 만들어오세요");
                 }
             }
+
             getOrnermentList = myTree.get().getOrnamentList();
             if(!edited){
                 System.out.println("추가된 오너먼트가 없어요");
@@ -51,6 +52,7 @@ public class OrnamentService {
                         .memory(ornamentDTO.getMemory())
                         .tree(myTree.get())
                         .build();
+
                 ornamentRepository.save(ornament);
                 System.out.println("기본 오너먼트가 만들어졌어요");
                 listIndex = getOrnermentList.indexOf(ornament);
