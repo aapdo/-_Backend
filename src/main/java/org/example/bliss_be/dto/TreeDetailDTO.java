@@ -19,7 +19,7 @@ public class TreeDetailDTO {
 
     public void setOrnamentIdList(Tree tree) {
         this.ornamentIdList = new ArrayList<>();
-        for (int i = 0; i < tree.getOrnamentList().size(); i++) {
+        for (int i = 0; i < 14; i++) {
             if (tree.getOrnamentList().get(i) != null) {
                 this.ornamentIdList.add(tree.getOrnamentList().get(i).getId());
             } else {
