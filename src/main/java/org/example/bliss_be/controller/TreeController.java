@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.example.bliss_be.service.TreeService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.List;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +34,7 @@ public class TreeController {
         TreeOverViewDTO treeOverViewDTO = new TreeOverViewDTO();
         treeOverViewDTO.setTreeId(treeId);
         String msg = treeService.getTreeOverView(treeOverViewDTO);
+        Collections.reverse(treeOverViewDTO.getOrnamentOverViewList());
         ResponseDTO<TreeOverViewDTO> response = ResponseDTO.<TreeOverViewDTO>builder()
                 .message(msg).data(treeOverViewDTO).build();
         return ResponseEntity.ok().body(response);
