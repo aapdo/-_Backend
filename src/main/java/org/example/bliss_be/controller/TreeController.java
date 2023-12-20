@@ -37,7 +37,7 @@ public class TreeController {
     }
 
     @PostMapping("/tree/memo")
-    public ResponseEntity<ResponseDTO<Long>> getRecord(@RequestBody RecordReqDTO recordReqDTO) {
+    public ResponseEntity<ResponseDTO<Integer>> getRecord(@RequestBody RecordReqDTO recordReqDTO) {
         // 좋은 기억을 입력하면 오너먼트 준다.
         // 나쁜 기억 1, 3, 5, 10, 15
         Long treeId = recordReqDTO.getTreeId();
@@ -57,9 +57,9 @@ public class TreeController {
             msg = "기록되었습니다.";
         }
 
-        ResponseDTO<Long> response = ResponseDTO.<Long>builder()
+        ResponseDTO<Integer> response = ResponseDTO.<Integer>builder()
                 .message(msg)
-                .data(ornamentDTO.getOrnamentId())
+                .data(listIndex)
                 .build();
 
         return ResponseEntity.ok().body(response);
