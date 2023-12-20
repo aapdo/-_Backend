@@ -3,7 +3,7 @@
 donggukthon_2023_5_B/.idea
 .gradle/
 ./build/
-
+.idea/
 HELP.md
 .gradle
 build/
