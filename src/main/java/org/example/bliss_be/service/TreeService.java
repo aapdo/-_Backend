@@ -32,6 +32,7 @@ public class TreeService {
         String returnMsg = "";
         Optional<Tree> optionalTree = treeRepository.findById(treeOverViewDTO.getTreeId());
         if (optionalTree.isPresent()) {
+            log.info("ornament size = {}", optionalTree.get().getOrnamentList());
             treeOverViewDTO.setOrnamentIdList(optionalTree.get());
             log.info("");
             returnMsg = "트리 조회에 성공하였습니다.";

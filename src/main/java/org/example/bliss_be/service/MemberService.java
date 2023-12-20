@@ -1,8 +1,10 @@
 package org.example.bliss_be.service;
 
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 import org.example.bliss_be.dto.MemberDTO;
 import org.example.bliss_be.entity.MemberEntity;
+import org.example.bliss_be.entity.Ornament;
 import org.example.bliss_be.entity.Tree;
 import org.example.bliss_be.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +13,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MemberService {
     private final MemberRepository memberRepository;
     private final TreeRepository treeRepository;
@@ -23,16 +27,25 @@ public class MemberService {
         if (memberRepository.findByName(memberDTO.getName()).isPresent()){
             message = "이미 존재하는 아이디입니다.";
         }else {
+            List<Ornament> tmp = new ArrayList<>(13);
+            for (int i = 0; i < 13; i++) {
+                Ornament ornament = Ornament.builder()
+                        .id(null)
+                        .isGoodMemory(null)
+                        .memory(null)
+                        .tree(null).build();
+                tmp.add(ornament);
+                log.info("new ornament = {}", ornament);
+            }
+
             Tree treeEntity = Tree.builder()
                     .isAccessable(false)
                     .NumBadMemory(0)
                     .NumGoodMemory(0)
-                    .ornamentList(new ArrayList<>())
+                    .ornamentList(tmp)
                     .build();
-            for (int i = 0; i < 13; i++) {
-                treeEntity.getOrnamentList().add(null);
-            }
-            treeRepository.save(treeEntity);
+            Tree savedTree = treeRepository.save(treeEntity);
+            log.info("result : {}", savedTree.getOrnamentList().get(10));
             MemberEntity memberEntity = MemberEntity.builder()
                     .name(memberDTO.getName())
                     .password(memberDTO.getPassword())
