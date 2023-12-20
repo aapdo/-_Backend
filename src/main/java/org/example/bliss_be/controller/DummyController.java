@@ -24,7 +24,7 @@ public class DummyController {
         String msg = "test!";
         Tree dummyTree = new Tree();
         List<Ornament> dummyData = new ArrayList<>();
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 14; i++) {
             if (i % 2 == 0) {
                 dummyData.add(null);
             } else {
