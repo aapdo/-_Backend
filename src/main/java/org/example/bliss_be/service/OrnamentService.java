@@ -38,14 +38,20 @@ public class OrnamentService {
         int listIndex = -1;
         // 1, 3, 5, 10 ,15
         Optional<Tree> myTree = treeRepository.findById(ornamentDTO.getTreeId());
+        Tree tree;
         List<Ornament> getOrnermentList;
         if(myTree.isPresent()){
+            tree = myTree.get();
+
+            int badNum = tree.getNumBadMemory();
+            int goodNum = tree.getNumGoodMemory();
 
             //좋은 기억이면
             if(ornamentDTO.getIsGoodMemory()){
+                goodNum++;
                 edited = true;
             }else {
-                int badNum = myTree.get().getNumBadMemory();
+                badNum++;
                 if (badNum == 1 || badNum == 3 || badNum == 5 || badNum == 10 || badNum == 15) {
                     edited = true;
                     System.out.println("특별 오너먼트 만들어졌어요");
@@ -54,7 +60,7 @@ public class OrnamentService {
                 }
             }
 
-            getOrnermentList = myTree.get().getOrnamentList();
+            getOrnermentList = tree.getOrnamentList();
             if(!edited){
                 System.out.println("추가된 오너먼트가 없어요");
             }else {
@@ -64,6 +70,8 @@ public class OrnamentService {
                         .tree(myTree.get())
                         .build();
 
+                tree.setNumGoodMemory(goodNum);
+                tree.setNumBadMemory(badNum);
                 ornamentRepository.save(ornament);
                 System.out.println("기본 오너먼트가 만들어졌어요");
                 listIndex = getOrnermentList.indexOf(ornament);
