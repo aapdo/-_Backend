@@ -8,6 +8,7 @@ import org.example.bliss_be.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.example.bliss_be.repository.TreeRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class MemberService {
                     .isAccessable(false)
                     .NumBadMemory(0)
                     .NumGoodMemory(0)
-                    .ornamentList(new ArrayList<>())
+                    .ornamentList(new ArrayList<>(13))
                     .build();
             treeRepository.save(treeEntity);
             MemberEntity memberEntity = MemberEntity.builder()

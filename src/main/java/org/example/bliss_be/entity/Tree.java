@@ -22,6 +22,9 @@ public class Tree {
     private Integer NumBadMemory;
     private Integer NumGoodMemory;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private MemberEntity member;
+
     @JsonIgnore
     @OneToMany(mappedBy = "tree")
     private List<Ornament> ornamentList;
