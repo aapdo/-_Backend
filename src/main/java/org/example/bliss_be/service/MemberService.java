@@ -22,21 +22,15 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
     private final TreeRepository treeRepository;
+
+    @Transactional
     public String join(MemberDTO memberDTO){
         String message;
         if (memberRepository.findByName(memberDTO.getName()).isPresent()){
             message = "이미 존재하는 아이디입니다.";
         }else {
             List<Ornament> tmp = new ArrayList<>(13);
-            for (int i = 0; i < 13; i++) {
-                Ornament ornament = Ornament.builder()
-                        .id(null)
-                        .isGoodMemory(null)
-                        .memory(null)
-                        .tree(null).build();
-                tmp.add(ornament);
-                log.info("new ornament = {}", ornament);
-            }
+
 
             Tree treeEntity = Tree.builder()
                     .isAccessable(false)
@@ -45,6 +39,15 @@ public class MemberService {
                     .ornamentList(tmp)
                     .build();
             Tree savedTree = treeRepository.save(treeEntity);
+
+            for (int i = 0; i < 14; i++) {
+                Ornament ornament = Ornament.builder()
+                        .isGoodMemory(null)
+                        .memory(null)
+                        .tree(treeEntity).build();
+                tmp.add(ornament);
+                log.info("new ornament = {}", ornament);
+            }
             log.info("result : {}", savedTree.getOrnamentList().get(10));
             MemberEntity memberEntity = MemberEntity.builder()
                     .name(memberDTO.getName())

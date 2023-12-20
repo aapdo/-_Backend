@@ -26,8 +26,9 @@ public class Tree {
     @OneToOne(cascade = CascadeType.ALL)
     private MemberEntity member;
 
+
     @JsonIgnore
-    @OneToMany(mappedBy = "tree")
+    @OneToMany(mappedBy = "tree", cascade = CascadeType.ALL)
     private List<Ornament> ornamentList;
 
 }
