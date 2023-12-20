@@ -37,7 +37,7 @@ public class TreeController {
     }
 
     @PostMapping("/tree/memo")
-    public ResponseEntity<ResponseDTO<RecordResDTO>> getRecord(@RequestBody RecordReqDTO recordReqDTO) {
+    public ResponseEntity<ResponseDTO<Long>> getRecord(@RequestBody RecordReqDTO recordReqDTO) {
         // 좋은 기억을 입력하면 오너먼트 준다.
         // 나쁜 기억 1, 3, 5, 10, 15
         Long treeId = recordReqDTO.getTreeId();
@@ -49,14 +49,15 @@ public class TreeController {
         } else {
             ornamentDTO = new OrnamentDTO(false, recordReqDTO.getMemo());
         }
-        ornamentService.addOrnament(treeId, ornamentDTO);
+        ornamentDTO.setTreeId(treeId);
+        ornamentService.addOrnament(ornamentDTO);
 
         // 장식 생성이 되지 않은 경우
         if (ornamentDTO.getOrnamentId() != null) {
-            msg = "기록되었습니다.;
+            msg = "기록되었습니다.";
         }
 
-        ResponseDTO<RecordResDTO> response = ResponseDTO.builder()
+        ResponseDTO<Long> response = ResponseDTO.<Long>builder()
                 .message(msg)
                 .data(ornamentDTO.getOrnamentId())
                 .build();
