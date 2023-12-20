@@ -37,6 +37,7 @@ public class OrnamentService {
         Boolean edited = false;
         int listIndex = -1;
         // 1, 3, 5, 10 ,15
+        // 1, 5, 8,
         Optional<Tree> myTree = treeRepository.findById(ornamentDTO.getTreeId());
         Tree tree;
         List<Ornament> getOrnermentList;

@@ -40,7 +40,7 @@ public class MemberService {
                     .build();
             Tree savedTree = treeRepository.save(treeEntity);
 
-            for (int i = 0; i < 13; i++) {
+            for (int i = 0; i < 14; i++) {
                 Ornament ornament = Ornament.builder()
                         .isGoodMemory(null)
                         .memory(null)
