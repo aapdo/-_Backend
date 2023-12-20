@@ -1,6 +1,7 @@
 package org.example.bliss_be.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.bliss_be.dto.OrnamentDTO;
 import org.example.bliss_be.entity.Ornament;
 import org.example.bliss_be.entity.Tree;
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrnamentService {
     private final OrnamentRepository ornamentRepository;
     private final TreeRepository treeRepository;
@@ -25,13 +27,12 @@ public class OrnamentService {
         int listIndex = -1;
         // 1, 3, 5, 10 ,15
         Optional<Tree> myTree = treeRepository.findById(ornamentDTO.getTreeId());
+        List<Ornament> getOrnermentList;
         if(myTree.isPresent()){
 
             //좋은 기억이면
-            if(ornamentDTO.getIsGoodMemory())
-            {
+            if(ornamentDTO.getIsGoodMemory()){
                 edited = true;
-                System.out.println("기본 오너먼트가 만들어졌어요");
             }else {
                 int badNum = myTree.get().getNumBadMemory();
                 if (badNum == 1 || badNum == 3 || badNum == 5 || badNum == 10 || badNum == 15) {
@@ -40,20 +41,21 @@ public class OrnamentService {
                 } else {
                     System.out.println("나쁜기억을 더 만들어오세요");
                 }
-                List<Ornament> getOrnermentList = getOrnamentList(ornamentDTO.getTreeId());
-                if(edited == true){
-                    System.out.println("추가된 오너먼트가 없어요");
-                }else {
-                    Ornament ornament = Ornament.builder()
-                            .isGoodMemory(ornamentDTO.getIsGoodMemory())
-                            .memory(ornamentDTO.getMemory())
-                            .tree(myTree.get())
-                            .build();
-                    ornamentRepository.save(ornament);
-                    listIndex = getOrnermentList.indexOf(ornament);
-                }
             }
-
+            getOrnermentList = getOrnamentList(ornamentDTO.getTreeId());
+            if(!edited){
+                System.out.println("추가된 오너먼트가 없어요");
+            }else {
+                Ornament ornament = Ornament.builder()
+                        .isGoodMemory(ornamentDTO.getIsGoodMemory())
+                        .memory(ornamentDTO.getMemory())
+                        .tree(myTree.get())
+                        .build();
+                ornamentRepository.save(ornament);
+                System.out.println("기본 오너먼트가 만들어졌어요");
+                listIndex = getOrnermentList.indexOf(ornament);
+                log.info("list index: {}", listIndex);
+            }
         }else {
             System.out.println("트리를 조회할 수 없어요");
         }
