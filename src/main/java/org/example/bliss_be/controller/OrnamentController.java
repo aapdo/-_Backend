@@ -30,15 +30,15 @@ public class OrnamentController {
     }
 
     @GetMapping("/getlist/{treeId}")
-    public ResponseEntity<ResponseDTO<List<Ornament>>> getOrnamentList(@PathVariable Long treeId){
+    public ResponseEntity<ResponseDTO<List<OrnamentDTO>>> getOrnamentList(@PathVariable Long treeId){
         String message;
-        List<Ornament> ornamentList = ornamentService.getOrnamentList(treeId);
+        List<OrnamentDTO> ornamentList = ornamentService.getOrnamentList(treeId);
         if(ornamentList.isEmpty()){
             message = "오너먼트가 하나도 없어요...";
         }else {
             message = "오너먼트 조회에 성공하였습니다.";
         }
-        ResponseDTO<List<Ornament>> response = ResponseDTO.<List<Ornament>>builder()
+        ResponseDTO<List<OrnamentDTO>> response = ResponseDTO.<List<OrnamentDTO>>builder()
                 .message(message)
                 .data(ornamentList)
                 .build();

@@ -9,6 +9,7 @@ import org.example.bliss_be.repository.OrnamentRepository;
 import org.example.bliss_be.repository.TreeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,9 +19,19 @@ import java.util.Optional;
 public class OrnamentService {
     private final OrnamentRepository ornamentRepository;
     private final TreeRepository treeRepository;
-    public List<Ornament> getOrnamentList(Long treeId){
+    public List<OrnamentDTO> getOrnamentList(Long treeId){
         List<Ornament> ornamentList = ornamentRepository.findAllByTreeId(treeId);
-        return  ornamentList;
+        List<OrnamentDTO> ornamentDTOList = new ArrayList<>();
+        for (Ornament o : ornamentList){
+            OrnamentDTO ornamentDTO = OrnamentDTO.builder()
+                    .treeId(o.getTree().getId())
+                    .ornamentId(o.getId())
+                    .isGoodMemory(o.getIsGoodMemory())
+                    .memory(o.getMemory())
+                    .build();
+            ornamentDTOList.add(ornamentDTO);
+        }
+        return  ornamentDTOList;
     }
     public Integer addOrnament(OrnamentDTO ornamentDTO){
         Boolean edited = false;
