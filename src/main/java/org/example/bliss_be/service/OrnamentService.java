@@ -3,6 +3,7 @@ package org.example.bliss_be.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.bliss_be.dto.OrnamentDTO;
+import org.example.bliss_be.dto.ResponseOrnermentDTO;
 import org.example.bliss_be.entity.Ornament;
 import org.example.bliss_be.entity.Tree;
 import org.example.bliss_be.repository.OrnamentRepository;
@@ -19,12 +20,11 @@ import java.util.Optional;
 public class OrnamentService {
     private final OrnamentRepository ornamentRepository;
     private final TreeRepository treeRepository;
-    public List<OrnamentDTO> getOrnamentList(Long treeId){
+    public List<ResponseOrnermentDTO> getOrnamentList(Long treeId){
         List<Ornament> ornamentList = ornamentRepository.findAllByTreeId(treeId);
-        List<OrnamentDTO> ornamentDTOList = new ArrayList<>();
+        List<ResponseOrnermentDTO> ornamentDTOList = new ArrayList<>();
         for (Ornament o : ornamentList){
-            OrnamentDTO ornamentDTO = OrnamentDTO.builder()
-                    .treeId(o.getTree().getId())
+            ResponseOrnermentDTO ornamentDTO = ResponseOrnermentDTO.builder()
                     .ornamentId(o.getId())
                     .isGoodMemory(o.getIsGoodMemory())
                     .memory(o.getMemory())

@@ -3,6 +3,7 @@ package org.example.bliss_be.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.bliss_be.dto.OrnamentDTO;
 import org.example.bliss_be.dto.ResponseDTO;
+import org.example.bliss_be.dto.ResponseOrnermentDTO;
 import org.example.bliss_be.entity.Ornament;
 import org.example.bliss_be.service.OrnamentService;
 import org.example.bliss_be.service.TreeService;
@@ -30,15 +31,15 @@ public class OrnamentController {
     }
 
     @GetMapping("/getlist/{treeId}")
-    public ResponseEntity<ResponseDTO<List<OrnamentDTO>>> getOrnamentList(@PathVariable Long treeId){
+    public ResponseEntity<ResponseDTO<List<ResponseOrnermentDTO>>> getOrnamentList(@PathVariable Long treeId){
         String message;
-        List<OrnamentDTO> ornamentList = ornamentService.getOrnamentList(treeId);
+        List<ResponseOrnermentDTO> ornamentList = ornamentService.getOrnamentList(treeId);
         if(ornamentList.isEmpty()){
             message = "오너먼트가 하나도 없어요...";
         }else {
             message = "오너먼트 조회에 성공하였습니다.";
         }
-        ResponseDTO<List<OrnamentDTO>> response = ResponseDTO.<List<OrnamentDTO>>builder()
+        ResponseDTO<List<ResponseOrnermentDTO>> response = ResponseDTO.<List<ResponseOrnermentDTO>>builder()
                 .message(message)
                 .data(ornamentList)
                 .build();
