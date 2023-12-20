@@ -21,7 +21,6 @@ public class MemberService {
         String message;
         if (memberRepository.findByName(memberDTO.getName()).isPresent()){
             message = "이미 존재하는 아이디입니다.";
-
         }else {
             Tree treeEntity = Tree.builder()
                     .isAccessable(false)

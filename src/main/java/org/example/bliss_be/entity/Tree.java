@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor @Builder
 @Getter
+@ToString(exclude = "ornamentList")
 public class Tree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

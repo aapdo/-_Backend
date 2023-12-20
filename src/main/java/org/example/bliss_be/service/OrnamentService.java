@@ -45,6 +45,7 @@ public class OrnamentService {
 
             int badNum = tree.getNumBadMemory();
             int goodNum = tree.getNumGoodMemory();
+            log.info("goodNum = {}, badNum = {}", goodNum, badNum);
 
             //좋은 기억이면
             if(ornamentDTO.getIsGoodMemory()){
@@ -59,23 +60,29 @@ public class OrnamentService {
                     System.out.println("나쁜기억을 더 만들어오세요");
                 }
             }
+            tree.setNumGoodMemory(goodNum);
+            tree.setNumBadMemory(badNum);
 
-            getOrnermentList = tree.getOrnamentList();
+
             if(!edited){
                 System.out.println("추가된 오너먼트가 없어요");
+                log.info("cur tree = {}", tree);
+                Tree newTree = treeRepository.save(tree);
+                log.info("new tree = {}", newTree);
             }else {
                 Ornament ornament = Ornament.builder()
                         .isGoodMemory(ornamentDTO.getIsGoodMemory())
                         .memory(ornamentDTO.getMemory())
-                        .tree(myTree.get())
+                        .tree(tree)
                         .build();
 
-                tree.setNumGoodMemory(goodNum);
-                tree.setNumBadMemory(badNum);
                 ornamentRepository.save(ornament);
                 System.out.println("기본 오너먼트가 만들어졌어요");
+
+                getOrnermentList = tree.getOrnamentList();
+
                 listIndex = getOrnermentList.indexOf(ornament);
-                log.info("list index: {}", listIndex);
+                log.info("list index = {}", listIndex);
             }
         }else {
             System.out.println("트리를 조회할 수 없어요");

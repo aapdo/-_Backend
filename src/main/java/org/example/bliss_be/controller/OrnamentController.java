@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.bliss_be.dto.OrnamentDTO;
 import org.example.bliss_be.dto.ResponseDTO;
 import org.example.bliss_be.entity.Ornament;
+import org.example.bliss_be.exception.EntityNotFoundException;
 import org.example.bliss_be.service.OrnamentService;
 import org.example.bliss_be.service.TreeService;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,8 @@ public class OrnamentController {
         String message;
         List<OrnamentDTO> ornamentList = ornamentService.getOrnamentList(treeId);
         if(ornamentList.isEmpty()){
-            message = "오너먼트가 하나도 없어요...";
+            //message = "오너먼트가 하나도 없어요...";
+            throw new EntityNotFoundException("오너먼트가 하나도 없습니다.");
         }else {
             message = "오너먼트 조회에 성공하였습니다.";
         }
