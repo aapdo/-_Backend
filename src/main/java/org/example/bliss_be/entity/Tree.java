@@ -20,7 +20,7 @@ public class Tree {
     private Integer NumBadMemory;
     private Integer NumGoodMemory;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tree")
     private List<Ornament> ornamentList;
 
 }
